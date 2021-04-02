@@ -1,0 +1,18 @@
+  <div class="container">
+   <% @pics.each do |pic| %>
+   <div class="fix1 text-center container figure">
+    <div class="justify-content-center">
+     <% if pic.image.attached? %>
+     <%= link_to pic do %>
+       <div class="fix2">
+       <img src="<%=(url_for(pic.image))%>">
+       </div>
+     <% end %>
+     <% end %>
+     <h2>
+       <%= link_to pic.title, pic, class:"btn btn-dark" %>
+     </h2>
+    </div>
+   </div>
+   <% end %>
+  </div>

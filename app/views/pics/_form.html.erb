@@ -1,0 +1,34 @@
+<% if @pic.errors.any? %>
+  <h2></h2>
+  <%= pluralize(@pic.errors.count, 'error') %>
+  prevented this pic from saving
+  <ul>
+    <% @pic.errors.full_messages.each do |msg| %>
+      <li>msg</li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="container">
+<%= simple_form_for @pic, html: {multipart:true} do |f| %>
+  <div class="form-group">
+  <br/><br/>
+    <%= f.label "Picture"%>
+    <%= f.file_field :image %>
+    <br/><br/>
+  </div>
+  <div class="form-group">
+  <br/>
+    <%= f.input :title, input_html: {class: 'form-control'} %>
+    <br/>
+  </div>
+  <div class="form-group">
+  <br/>
+    <%= f.input :description, input_html: {class: 'form-control'} %>
+    <br/>
+  </div>
+  <br/>
+  <%= f.button :submit, class:'btn btn-info' %>
+  <%= link_to "Back", root_path  , class:"btn btn-primary"%>
+<% end %>
+</div>

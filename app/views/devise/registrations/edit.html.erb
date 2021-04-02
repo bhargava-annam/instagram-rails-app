@@ -1,0 +1,70 @@
+
+<div class="container">
+<div>
+  <div class="card-header">
+    <div class="text-center">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    </div>
+  </div>
+ <div class="card-body">
+   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+   <%= render "devise/shared/error_messages", resource: resource %>
+    <br>
+   <div class="field form-group row">
+     <%= f.label :email, class:"col-sm-3 col-form-label" %><br />
+     <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:" form-control col-sm-8"%>
+   </div>
+ 
+   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+   <% end %>
+ 
+   <div class="field form-group row">
+     <%= f.label :password,class:"col-sm-3 col-form-label" %> <br />
+     <%= f.password_field :password, autocomplete: "new-password",class:" form-control col-sm-8",placeholder:"(leave blank if you don't want to change it)" %>
+     <% if @minimum_password_length %>
+       <br />
+      <p>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      (<em><%= @minimum_password_length %> characters minimum</em>)</p>
+     <% end %>
+   </div>
+ 
+   <div class="field form-group row">
+     <%= f.label :password_confirmation ,class:"col-sm-3 col-form-label"%><br />
+     <%= f.password_field :password_confirmation, autocomplete: "new-password",class:" form-control col-sm-8",placeholder:"" %>
+   </div>
+ 
+   <div class="field form-group row">
+     <%= f.label :current_password,class:"col-sm-3 col-form-label" %> <br />
+     <%= f.password_field :current_password, autocomplete: "current-password",class:" form-control col-sm-8",placeholder:"(we need your current password to confirm your changes)" %>
+   </div>
+   <br>
+   <div class="actions">
+     <%= f.submit "Update", class:"btn btn-secondary" ,style:"margin-left:20px"%>
+     <br>
+   </div>
+  <% end %> 
+  <br>
+  <hr>
+  <br>
+ 
+  <div class="card">
+  <div class="text-center">
+   <h3 class="card-header">Unhappy?</h3>
+   </div>
+   <div class="card-body">
+     <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , class:"btn btn-danger"%></p>
+ 
+   </div>
+  </div>
+ 
+ 
+   <br>
+   <%= link_to "Back", root_path  , class:"btn btn-primary"%>
+   <br>
+ </div>
+</div>
+
+
+</div>

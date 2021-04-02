@@ -1,0 +1,45 @@
+<div class="container">
+<div class="card" style="word-wrap:normal; width:80%;margin:auto">
+  <div class="card-header">
+    <h2 style="text-align:center">Sign up</h2>
+  </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<br>
+
+
+
+<div >
+  <div class="field form-group" >
+    <%=f.label :email %> 
+    <%= f.email_field :email,autocomplete:"email", class:"form-control col-md-12", placeholder:"abc@gmail.com" %>
+  </div>
+  <br>
+
+  <div class="field form-group ">
+     <%= f.label :password , class:"form-label" %> 
+    
+    <%= f.password_field :password,autocomplete:"new password",class:"form-control col-md-12"%>
+   
+  </div>
+<br>
+  <div class="field ">
+    <%= f.label :password_confirmation , class:"form-label"%> 
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"form-control col-md-12"%>
+  </div>
+
+  <br>
+ <div class="actions">
+    &nbsp;&nbsp;&nbsp;&nbsp;<%= f.submit "Sign up" ,class:"btn btn-dark"%>
+  </div>
+   </div><div class="my" >
+
+<% end %>
+<br>
+&nbsp;&nbsp;&nbsp;<%= render "devise/shared/links" %></button>
+  </div>
+</div>
+
+
+</div>

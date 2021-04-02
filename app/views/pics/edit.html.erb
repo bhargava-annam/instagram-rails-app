@@ -1,0 +1,23 @@
+<div class='container mb-3'>   
+  <div class="col-md-8 col-md-offset-2" id="edit_page">
+     <div class="row">
+       <div class="card">
+         <br/>
+           <h1>Fix Pic</h1>
+       <br/><br/>
+           <div class>
+           <br>
+             <strong class="text center">Right Now</strong>
+            <br/><br/>
+             <% if @pic.image.attached? %>
+               <image src="<%=(url_for(@pic.image))%>">
+             <% end %>
+             <br/><br/>
+           </div>
+           
+           <%= render 'form' %>
+         
+       </div>
+     </div>
+   </div>
+</div>
